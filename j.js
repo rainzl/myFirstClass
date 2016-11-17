@@ -1,6 +1,6 @@
 (functon(){
-	function(){
-		-
+	function fn1(){
+	
 	}
-div.atan(x);
+	div.atan(x);
 })()
