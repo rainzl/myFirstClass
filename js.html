@@ -20,6 +20,7 @@
 	background-color: #20F5FB;
 	width: 200px;
 	height: 100px;
+	backgroud:#fff;
 }
 </style>
 </head>
@@ -33,13 +34,14 @@
 var div1 = document.getElementById('box1');
 var div2 = document.getElementById('box2');
 var div3 = document.getElementById('box3');
+	div3.className = "active";
 div1.onmouseover = div2.onmouseover = div3.onmouseover = function (){
 	console.log('我是移入'+this.id);
 }
 div1.onmouseout = div2.onmouseout = div3.onmouseout = function (){
 	console.log('我是移出'+this.id);
 }
-	div1.addEventListener(event, listener, useCapture)/*wss*/
+
 	div1.addEventListener(event, listener, useCapture)/*wss*/
 </script>
 </body>
