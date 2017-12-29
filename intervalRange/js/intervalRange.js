@@ -12,15 +12,13 @@ function intervalRange(json){
 		isMagnBig: json.isMagnBig,
 		disPx: json.disPx || 35,
 		disNum: json.disNum || 36,
-		addNum: json.addNum || 12
+		addNum: json.addNum || 12,
+		isClick: json.isClick /*是否是点击跳转的*/
 	}
-	var _magnHint;
+	var _magnHint,_obj,_numHint,w,xAxisArr;
 	if (settings.isMagnBig) {
 		settings.numRange = json.numRangeMagn;
 	}
-	
-	//渲染页面
-	rander();
 	settings.obj[0].randerData = {
 		tjRangeMin: settings.tjRange.min,
 		tjRangeMax: settings.tjRange.max,
@@ -29,19 +27,23 @@ function intervalRange(json){
 		showPoint: settings.showPoint
 	}
 	settings.obj[0].xNums = {};
-	var _obj = settings.obj.find('.intervalRange'),
-		_numHint = settings.obj.find('.numHint');
-	var w = _obj.find('.choseBarCont').innerWidth();
-	var xAxisArr = creatAxisArr({min:settings.numRange.min,max:settings.numRange.max});
+	xAxisArr = creatAxisArr({min:settings.numRange.min,max:settings.numRange.max});
 	
 	
-	//初始化页面状态
-	init();
+	
+	rander(); //渲染页面
+	
+	init(); //初始化页面状态
 	
 	
 	
 	function init() {
 		var x;
+		_obj = settings.obj.find('.intervalRange');
+		w = _obj.find('.choseBarCont').innerWidth();
+		_numHint = settings.obj.find('.numHint');
+		
+		
 		//渲染数据
 		renderShowData();
 		
@@ -61,7 +63,7 @@ function intervalRange(json){
 		
 		//设置展示区间的最大值
 		x=Math.floor((settings.numRange.max-settings.showRange.max)*w/(xAxisArr.length));
-		setBar(_obj.find('.rightGrayBar'),{x:x,showNum:settings.showRange.max,position:'showRangeMax'});
+		setBar(_obj.find('.rightGrayBar'),{x:x,showNum:settings.showRange.max,position:'showRangeMax'},'width',{name: 'init'});
 		
 		//拖拽推荐点
 		drag({
@@ -89,7 +91,7 @@ function intervalRange(json){
 			position: 'showRangeMax'
 		});
 		settings.obj.find('.magn').off('click').on('click',intervalRangeMagn);
-		if ( !settings.isMagnBig ) {
+		if ( !settings.isMagnBig && _magnHint ) {
 			_magnHint.find('.max').off('click').on('click',intervalRangeMax);
 		}
 	}
@@ -118,9 +120,9 @@ function intervalRange(json){
 				},
 				disPx: settings.disPx,
 				disNum: settings.disNum,
-				addNum: settings.addNum
+				addNum: settings.addNum,
+				isClick: true			
 			}
-			
 			intervalRange(_json)
 	}
 	function intervalRangeMax(ev) {
@@ -150,9 +152,10 @@ function intervalRange(json){
 			isMagnBig: true,
 			disPx: settings.disPx,
 			disNum: settings.disNum,
-			addNum: settings.addNum
+			addNum: settings.addNum,
+			isClick: true
 		}
-		_magnHint.remove();
+		_magnHint && _magnHint.remove();
 		intervalRange(_json)
 	}
 	
@@ -244,7 +247,7 @@ function intervalRange(json){
 						}
 					}
 				}
-				setBar(dragSettings.moveObj,{x:x,showNum:num,position:dragSettings.position},dragSettings.attrs,true,dragSettings.obj[0]);
+				setBar(dragSettings.moveObj,{x:x,showNum:num,position:dragSettings.position},dragSettings.attrs,{name: 'move',moveEle: dragSettings.obj[0]});
 			})
 			$(document).on('mouseup',function(ev){
 				dragSettings.obj[0].flag = false;
@@ -276,7 +279,7 @@ function intervalRange(json){
 	
 	//设置推荐点的位置
 	/*rangeControl*/
-	function setBar(obj,nums,attrs,isMove,moveEle) {
+	function setBar(obj,nums,attrs,cFrom) {
 		var disX,hintL;
 		attrs = attrs || 'width';
 		
@@ -306,9 +309,9 @@ function intervalRange(json){
 			}
 		} else {
 			settings.obj.removeClass('showMagn max').addClass('min showMagn');
-			if ( isMove && (nums.x===0 || nums.x===w) ) {
+			if ( cFrom && cFrom.name === 'move' && (nums.x===0 || nums.x===w) ) {
 				intervalRangeMin();
-				moveEle.flag = false;
+				cFrom.moveEle.flag = false;
 				return;
 			}
 		}
@@ -319,10 +322,14 @@ function intervalRange(json){
 			_numHint.css('left',hintL).show();
 			_numHint.find('.leftNum').html(settings.obj[0].randerData.showRangeMin);
 			_numHint.find('.rightNum').html(settings.obj[0].randerData.showRangeMax);
-			if (_magnHint) {
-				_magnHint.css('left',hintL).show();
+			if ( !settings.isClick && !settings.isMagnBig && cFrom && cFrom.name === 'init' ) {
+				intervalRangeMax();
+			} else {
+				if (_magnHint) {
+					_magnHint.css('left',hintL).show();
+				}
+				settings.obj.find('.grayBar i').hide();
 			}
-			settings.obj.find('.grayBar i').hide();
 		} else {
 			_numHint.hide();
 			if (_magnHint) {
@@ -348,7 +355,7 @@ function intervalRange(json){
 			_tjRangeMax = settings.numRange.max;
 		}
 		firstW = Math.floor((_tjRangeMin-settings.numRange.min)*w/xAxisArr.length);
-		if ( _tjRangeMin === _tjRangeMax ) {
+		if ( _tjRangeMin === _tjRangeMax && _tjRangeMin === settings.numRange.min ) {
 			secondW = 0;
 		} else {
 			secondW = Math.floor((_tjRangeMax-_tjRangeMin+1)*w/xAxisArr.length);
@@ -374,9 +381,9 @@ function intervalRange(json){
 				+'<div class="choseBarCont">'
 					+'<div class="choseColorBar">'
 						+'<div class="dashedRange leftDashedRange"></div>'
-						+'<div class="leftRange blueBar"></div>'
-						+'<div class="cintervalRange pinkBar"></div>'
-						+'<div class="rightRange blueBar"></div>'
+						+'<div class="leftRange pinkBar"></div>'
+						+'<div class="cintervalRange blueBar"></div>'
+						+'<div class="rightRange pinkBar"></div>'
 						+'<div class="dashedRange rightDashedRange"></div>'
 					+'</div>'
 					+'<div class="leftGrayBar grayBar"><span class="leftBtn choseBtn color4d9ce4"><em><i>0</i></em></span></div>'
