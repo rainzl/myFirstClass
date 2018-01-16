@@ -1,0 +1,132 @@
+@charset "utf-8";
+body,p,h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+}
+ul,dl,dd {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a,
+a:active,
+a:focus {
+	outline:0;
+	outline:none;
+}
+button,
+button:active,
+button:focus {
+	outline:0;
+	outline:none;
+}
+input[type='button'],
+input[type='button']:avtive,
+input[type='button']:focus {
+	outline:0;
+	outline:none;
+}
+input[type='submit'],
+input[type='submit']:avtive,
+input[type='submit']:focus,
+input[type='submit']::-moz-focus-inner {
+	outline:0;
+	outline:none;
+}
+em {
+	font-style: normal;
+}
+i {
+	font-style: normal;
+}
+input {
+	outline: none;
+	resize: none;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	display: inline;
+	font-family: "微软雅黑";
+	list-style: none;
+	font-size: 14px;
+	overflow: hidden;
+	color: inherit;
+	/* -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none; */
+}
+input:-webkit-autofill, 
+textarea:-webkit-autofill, 
+select:-webkit-autofill {
+	background-color: #fefefe;
+}
+/* 清除谷歌浏览器下的 search 叉号 */
+input::-webkit-search-cancel-button{
+  display: none;
+}
+/* 清除IE下的 search 叉号 */
+input[type=text]::-ms-clear {
+  display:none
+}
+input[type=text] {
+	border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+input[type=button] {
+	border-radius: 3px;
+}
+input[type=text]:focus {
+	box-shadow: 0 0 6px rgba(0,152,221,0.24) inset;
+}
+textarea:focus {
+	box-shadow: 0 0 6px rgba(0,152,221,0.24) inset;
+}
+iframe {
+	border: none;
+	overflow: hidden;
+}
+textarea {
+	outline: none;
+	resize: none;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	display: inline;
+	font-family: "微软雅黑";
+	list-style: none;
+	font-size: 14px;
+	overflow: hidden;
+	color: inherit;
+	border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+h4,h5,h6,b {
+	font-weight: normal;
+}
+table {
+	width:100%;
+	border-collapse:collapse;
+	border-spacing:0; 
+	border: 1px solid #e8eef1;
+}
+table td,
+table th{
+	border: 1px solid #e8eef1;
+}
+/*public css*/
+html {
+	width: 100%;
+	height: 100%;
+}
+input,button {
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	outline: none;
+	font-family: "微软雅黑";
+}

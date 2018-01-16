@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>达令数据安全系统</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+	<div class="wrap head">
+		<h1 class="logo"><img alt="logo" src=""/></h1>
+		<div class="headTitle">达令信息查询系统</div>
+		<div class="userNamePar">欢迎光临，<span class="userName">刘鹏程</span></div>
+	</div>
+	<div class="wrap body clear">
+		<div id="menu" class="menu">
+			<ul>
+				<li>
+					<p class="title"><span>信息查询</span><i class="showBtn">+</i></p>
+					<ul>
+						<li>
+							<p><span>信息查询</span></p>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<p class="title"><span>操作记录</span><i class="showBtn">+</i></p>
+					<ul>
+						<li>
+							<p><span>操作日志</span></p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="tbody" class="tbody">
+			<!--<div class="bodyTab">
+				<div class="tab1"><span>信息查询</span><span class="closeTab">&Chi;</span></div>
+			</div>
+			<div class="tools">
+				<div class="searchBox">
+					<input class="textIpt" type="text" placeholder="请输入查询信息" /><input class="btnIpt" type="button" value="查询" />
+				</div>
+			</div>
+			<div class="table">
+				<table>
+					<tr>
+						<th>加密信息</th>
+						<th>解密信息</th>
+						<th>创建时间</th>
+						<th>来源</th>
+					</tr>
+					<tr>
+						<td>加密信息加密信息加密信息加密信息加密信息加密信息加密信息加密信息加密信息加密信息</td>
+						<td>解密信息解密信息解密信息解密信息解密信息解密信息解密信息解密信息解密信息解密信息解密信息</td>
+						<td>创建时间创建时间创建时间创建时间创建时间创建时间创建时间创建时间创建时间</td>
+						<td>来源</td>
+					</tr>
+				</table>
+			</div>-->
+			
+			<div class="bodyTab">
+				<div class="tab1"><span>操作日志</span><span class="closeTab">&Chi;</span></div>
+			</div>
+			<div class="tools">
+				<div class="operatPerson">
+					<span class="operatCapt">操作人： </span><p class="operatName">张三</p><span class="showListBtn"></span>
+					<ul class="operatList">
+						<li class="active">张三</li>
+						<li>李四</li>
+						<li>王五</li>
+					</ul>
+				</div><div class="operatTime">
+					<span class="operatCapt">操作时间：</span><input class="start textIpt" type="text" /><span class="operatTimeBridge">~</span><input class="start textIpt" type="text" />
+					<input class="btnIpt" type="button" value="查询" />
+				</div>
+			</div>
+			<div class="table">
+				<table>
+					<tr>
+						<th>序号</th>
+						<th>操作人</th>
+						<th>操作时间</th>
+						<th>查询信息</th>
+					</tr>
+					<tr>
+						<td>序号</td>
+						<td>操作人</td>
+						<td>操作时间</td>
+						<td>查询信息</td>
+					</tr>
+				</table>
+				<div class="pageList"></div>
+			</div>
+		</div>
+	</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/pageList.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
