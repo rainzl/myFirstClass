@@ -1,0 +1,285 @@
+body {
+	color: #3C4C5B;
+	font-size: 14px;
+	font-family: "微软雅黑",arial;
+	/*background-color: #F3F3F3;*/
+	background-color: #fff;
+}
+.clear:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.wrap {
+	padding: 0 20px;
+}
+.head {
+	border-bottom: 1px solid #DADADA;
+	height: 60px;
+	text-align: center;
+	background-color: #fff;
+}
+.head .logo {
+	padding-top: 5px;
+	/*border-right: 1px solid #DADADA;*/
+	width: 200px;
+	float: left;
+}
+.head .logo img {
+	width: 100px;
+	height: 48px;
+}
+.head .headTitle {
+	display: inline-block;
+	vertical-align: top;
+	height: 60px;
+	line-height: 60px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #3E8CCA;
+}
+.head .userNamePar {
+	float: right;
+	line-height: 60px;
+	white-space: nowrap;
+}
+.body {
+	/*background-color: #fff;*/
+}
+.menu {
+	float: left;
+	padding-top: 15px;
+	margin-bottom: -9999px;
+	padding-bottom: 9999px;
+	border-right: 1px solid #DADADA;
+	
+	width: 200px;
+	overflow: hidden;
+}
+.menu>ul {
+	/*padding: 10px 0;
+	margin-bottom: -9999px;
+	padding-bottom: 9999px;
+	background-color: #fff;
+	overflow: hidden;*/
+}
+.menu>ul>li {
+	border-bottom: 1px dashed #DADADA;
+}
+.menu>ul>li:nth-last-child(1) {
+	border: none;
+}
+.menu li {
+	padding-left: 10px;
+	line-height: 30px;
+	
+}
+.menu .title {
+	position: relative;
+	cursor: pointer;
+}
+.menu .title:hover {
+	color: #3E8CCA;
+}
+.menu .title .showBtn {
+	position: absolute;
+	top: 6px;
+	right: 10px;
+	height: 20px;
+	width: 20px;
+	box-sizing: border-box;
+	font-size: 20px;
+	text-align: center;
+	line-height: 15px;
+	border: 1px solid #DADADA;
+	border-radius: 3px;
+	background-color: #fff;
+	cursor: pointer;
+	transition: .3s ease-in-out;
+} 
+.menu .title .showBtn:hover {
+	background-color: #f9f9f9;
+}
+.tbody {
+	float: right;
+	padding-top: 10px;
+	width: calc( 100% - 220px );
+	overflow: hidden;
+}
+.bodyTab {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.bodyTab .tab1 {
+	position: relative;
+	padding: 0 30px 0 10px;
+	height: 30px;
+	width: 80px;
+	line-height: 30px;
+	background-color: #f3f3f3;
+	border-radius: 3px;
+}
+.bodyTab .tab1 .closeTab {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 20px;
+	width: 20px;
+	font-size: 14px;
+	line-height: 20px;
+	font-family: helvetica,arial;
+	cursor: pointer;
+}
+.tools {
+	padding-bottom: 20px;
+}
+.searchBox {
+	height: 30px;
+}
+.textIpt {
+	padding: 0 10px;
+	height: 32px;
+	line-height: 30px;
+	width: 600px;
+}
+.btnIpt {
+	margin-left: 10px;
+	height: 32px;
+	line-height: 32px;
+	width: 80px;
+	background-color: #188ECF;
+	font-size: 16px;
+	color: #fff;
+	transition: .3s ease-in-out;
+}
+.btnIpt:hover {
+	background-color: #3E8CCA;
+}
+.table {
+	overflow: auto;
+	padding-bottom: 20px;
+}
+.table table td {
+	white-space: nowrap;
+}
+.table th,
+.table td {
+	padding: 10px;
+	line-height: 20px;
+}
+.showListBtn {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.showListBtn:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 8px;
+	right: 5px;
+	width: 0;
+	height: 0;
+	border: 7px solid #3C4C5B;
+	border-right-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+}
+.operatPerson,
+.operatTime,
+.operatCapt,
+.operatName,
+.operatTimeBridge,
+.operatTime .textIpt,
+.operatTime .btnIpt {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+.operatCapt {
+	margin-right: 10px;
+	line-height: 30px;
+}
+.operatPerson {
+	position: relative;
+	line-height: 30px;
+	margin-right: 20px;
+}
+.operatPerson .operatName {
+	border: 1px solid #DADADA;
+	height: 30px;
+	width: 100px;
+	padding-left: 10px;
+}
+.operatTimeBridge {
+	padding: 0 10px;
+	line-height: 30px;
+}
+.operatTime .textIpt {
+	width: 80px;
+}
+.operatList {
+	position: absolute;
+	top: 31px;
+	right: 0;
+	width: 110px;
+	border: 1px solid #DADADA;
+	border-bottom: none;
+	background-color: #fff;
+}
+.operatList li {
+	padding: 0 10px;
+	border-bottom: 1px solid #DADADA;
+	line-height: 30px;
+	cursor: pointer;
+}
+.operatList li.active {
+	background-color: #188ECF;
+	color: #fff;
+}
+
+
+
+
+
+
+.pageList {
+	padding: 20px 0;
+	text-align: center;
+}
+.pageList span {
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #E1E1E1;
+	margin-left: 10px;
+	width: 28px;
+	width: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+	background-color: #FFFFFF;
+}
+.pageList span.static {
+	width: 20px;
+	cursor: default;
+	border-color: transparent;
+	background-color: transparent;
+	font-size: 30px;
+}
+.pageList span.chengBtn {
+	width: 48px;
+}
+.pageList span.active {
+	border-color: #188ECF;
+	color: #fff;
+	background-color: #188ECF;
+}
+.pageList p {
+	display: inline-block;
+	vertical-align: top;
+}
