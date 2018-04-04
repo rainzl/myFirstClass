@@ -1,0 +1,47 @@
+@charset "utf-8";
+/*page*/
+p {
+	margin: 0;
+}
+.pageList {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 30px;
+	text-align: right;
+}
+.pageList span {
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #E1E1E1;
+	margin-left: 10px;
+	width: 28px;
+	width: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 3px;
+	cursor: pointer;
+	background-color: #FFFFFF;
+}
+.pageList span.static {
+	width: 20px;
+	cursor: default;
+	border-color: transparent;
+	background-color: transparent;
+	font-size: 30px;
+}
+.pageList span.chengBtn {
+	width: 48px;
+}
+.pageList span.active {
+	border-color: #188ECF;
+	color: #fff;
+	background-color: #188ECF;
+}
+.pageList p {
+	display: inline-block;
+	vertical-align: top;
+}
+.tBody {
+	padding-top: 20px;
+}

@@ -250,6 +250,7 @@ function intervalRange(json){
 				setBar(dragSettings.moveObj,{x:x,showNum:num,position:dragSettings.position},dragSettings.attrs,{name: 'move',moveEle: dragSettings.obj[0]});
 			})
 			$(document).on('mouseup',function(ev){
+				if (!flag || !dragSettings.obj[0].flag) return;
 				dragSettings.obj[0].flag = false;
 				flag = false;
 			})

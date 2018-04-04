@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>页码</title>
+	<link rel="stylesheet" href="css/pageList.css" />
+</head>
+<body>
+	<div class="pageList">
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/pageList.js"></script>
+	<script>
+		var pageList = new PageList($('.pageList'));
+		pageList.init({
+			nowNum: 1,
+			counts: 8,
+			changeNumFn: function(page){
+				
+			}
+		})
+	</script>
+</body>
+</html>

@@ -16,7 +16,84 @@
 	<section class="mainPunSct">
 		<div id="bar"></div>
 	</section>
+	<style>
+		.barTwoPar {
+			
+			margin: 0 auto;
+			margin-top: 15px;
+			width: 1000px;
+			height:57px; 
+			border-radius: 10px; 
+			
+			z-index: 10;			
+		}
+		#barTwo {
+			position: relative;
+			padding: 26px 50px 22px;
+			height: 9px;
+		}
+		#barTwo .intervalRange {
+			position: relative;
+			height: 9px;
+			background-color: RGBA(0, 150, 229, 0.23);
+		}
+		#barTwo .intervalRange:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 3px;
+			height: 3px;
+			width: 100%;
+			background-color: RGBA(0, 150, 229, 0.5);
+		}
+		#barTwo .rightBtn em {
+			top: -8px;
+			left: 13px;
+		}
+		#barTwo .leftBtn em {
+			top: -8px;
+			left: -44px;
+		}
+		#barTwo .choseBtn em {
+			width: 42px;
+		}
+		#barTwo .choseBtn {
+			width: 8px;
+			border-radius: 3px;
+		}
+		#barTwo .rightGrayBar .choseBtn {
+			position: absolute;
+			left: -6px;
+			right: auto;
+		}
+		#barTwo .leftGrayBar .choseBtn {
+			position: absolute;
+			right: -6px;
+			left: auto;
+		}
+	</style>
+	<section class="barTwoPar boderShadow">
+		<div id="barTwo"></div>
+	</section>
 <script src="js/intervalRange.js"></script>
 <script src="js/index.js"></script>
+<script src="js/range.js"></script>
+<script>
+range({
+	objPar: $('.barTwoPar'),
+	obj: $('#barTwo'),
+	showRange: {
+		min: 2010,
+		max: 2018
+	},
+	numRange: {
+		min: 2010,
+		max: 2018
+	},
+	mouseup: function(start,end){
+		console.log(start,end)
+	}
+})
+</script>
 </body>
 </html>

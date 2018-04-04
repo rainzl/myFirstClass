@@ -1,0 +1,36 @@
+@charset "utf-8";
+#scroll {
+	position: relative;
+	max-height: 100px;
+	width: 100px;
+	border: 1px solid #ccc;
+	overflow: hidden;
+}
+#scroll.ScrollPar {
+	height: 100px;
+}
+#scroll.ScrollPar .jsWheel{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+#scroll.ScrollPar .jsGdt {
+	display: block;
+}
+.jsGdt{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 5px;
+	height: 100%;
+	display: none;
+}
+.jsGdt span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 5px;
+	height: 20px;
+	background-color: #ccc;
+}

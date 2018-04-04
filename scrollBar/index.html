@@ -1,0 +1,39 @@
+﻿<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="css/scroll.css"/>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/scroll.js"></script>
+
+<style>
+
+</style>
+</head>
+<body>
+	<div id="scroll">
+		<ul class="jsWheel">
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+			<li>123</li>
+		</ul>
+		<div class="jsGdt"><span></span></div>
+	</div>
+	<script>
+		var bar = new Scroll($('#scroll')[0]);
+		bar.init({
+			zeroFlag: true,
+			maxH: 100,
+			wheelEle: '.jsWheel'
+		});
+	</script>
+</body>
+</html>
