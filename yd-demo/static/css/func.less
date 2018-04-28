@@ -1,0 +1,42 @@
+// 方法 变量
+@time:0.5s;
+/*处理兼容性*/
+// 阴影
+.box-shadow(@args) {
+	-webkit-box-shadow: @args;
+	   -moz-box-shadow: @args;
+			box-shadow: @args;
+}
+// 旋转，倾斜
+.transform(@args) {
+    -moz-transform: @args;
+    -webkit-transform: @args;
+	-o-transform: @args;
+	-ms-transform: @args;
+    transform: @args;
+}
+// 过渡动画
+.transition(@args){
+    -moz-transition: @args;
+    -webkit-transition: @args;
+	-o-transition: @args;
+	-m-transition:@args;
+	transition: @args;
+}
+// 定义循环函数
+.loop(@counter) when (@counter>0) {
+    .loop((@counter - 1));
+    .item-@{counter} when(mod((@counter+1),4)=0){
+		margin-right: 0 !important;
+	}
+}
+.pointer{
+	cursor: pointer;
+}
+
+/*文字一行显示*/
+.text-eslipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
