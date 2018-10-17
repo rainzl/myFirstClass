@@ -3,7 +3,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-const multipageHelper = require('./multipage-helper')
+var webpack = require('webpack'); // 引入 webpack 模块
+//var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin"); // 提取公用模块,防止所有资源打包到app.js 导致资源过大
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -23,7 +24,8 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   //entry: multipageHelper.getEntries(),
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    'vendor':['vue', 'vue-router', 'jquery']
   },
   output: {
     path: config.build.assetsRoot,
@@ -89,5 +91,15 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({ // webpack 的内置模块，引入的模块不需要通过require 和 import 的方式引入自动加载
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor'], // 注意不要.js后缀
+      minChunks:Infinity
+    })
+  ]
 }

@@ -30,12 +30,14 @@ Scroll.prototype = {
     }
   },
   rendStruct: function () {
+    console.log(this.obj,this.opts.maxH)
     if ($(this.wheelObj).height() > this.opts.maxH) {
       var scal = this.opts.maxH / this.wheelObj.scrollHeight
-      $(this.obj).addClass('ScrollPar')
+
+      $(this.obj).addClass('ScrollPar').css('height',this.opts.maxH);
       $(this.scrollBar).css('height', (scal * this.opts.maxH<100?100:scal * this.opts.maxH))
     } else {
-      $(this.obj).removeClass('ScrollPar')
+      $(this.obj).removeClass('ScrollPar').css('height','auto')
     }
   },
   scrollMouse: function () {
